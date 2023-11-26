@@ -3,9 +3,10 @@ WORKDIR /app
 ENV PYTHONUNBUFFERED=1
 ENV DEBIAN_FRONTEND=noninteractive
 
-COPY ./* /app/
+RUN mkdir /config
 
-RUN pip3 install -r requirements.txt
+COPY . /app/
+RUN pip3 install --upgrade pip && pip3 install  -r requirements.txt
 
 EXPOSE 9706/tcp
-CMD [ "python", "./tg3442de_exporter.py", "/config/config.yaml"]
+CMD [ "python3", "run.py", "/config/config.yml"]
