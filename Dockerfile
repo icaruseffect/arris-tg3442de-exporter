@@ -3,9 +3,9 @@ WORKDIR /app
 ENV PYTHONUNBUFFERED=1
 ENV DEBIAN_FRONTEND=noninteractive
 
-COPY tg3442de_exporter/* /app/
+COPY ./* /app/
 
-RUN apt-get update && apt install -y python3-click python3-pycryptodome python3-requests python3-prometheus-client python3-ruamel.yaml python3-deepmerge
+RUN pip3 install -r requirements.txt
 
 EXPOSE 9706/tcp
 CMD [ "python", "./tg3442de_exporter.py", "/config/config.yaml"]
