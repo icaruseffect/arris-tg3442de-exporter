@@ -31,6 +31,7 @@ class ChannelModulation(Enum):
     QAM256  = '256QAM'
     QAM128  = '128QAM'
     QAM64   = '64QAM'
+    QAM32   = '32QAM'
     QAM16   = '16QAM'
     QPSK    = 'QPSK'
 
