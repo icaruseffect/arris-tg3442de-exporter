@@ -32,11 +32,15 @@ class OverviewExtractor(HtmlMetricsExtractor):
             if len(values) == 2:
                 if values[1] == 'Gbps':
                     link_rate = float(link_rate) * 1000
-            hostname = device['HostName']
-            mac = device['MAC']
-            ipV4 = device['IPv4']
-            ipV6 = device['IPv6']
-            labels = [str(index),hostname,mac,ipV4,ipV6]
+            hostname = device.get('HostName')
+            mac = device.get('MAC')
+            ipV4 = device.get('IPv4')
+            ipV6 = device.get('IPv6')
+
+            def _safe_label(v):
+                return '' if v is None else str(v)
+
+            labels = [str(index), _safe_label(hostname), _safe_label(mac), _safe_label(ipV4), _safe_label(ipV6)]
             metric.add_metric(labels,link_rate)
 
 
