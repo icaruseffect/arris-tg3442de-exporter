@@ -28,6 +28,7 @@ class ChannelModulation(Enum):
     QAM4096 = '4096QAM'
     QAM2048 = '2048QAM'
     QAM1024 = '1024QAM'
+    QAM512  = '512QAM'
     QAM256  = '256QAM'
     QAM128  = '128QAM'
     QAM64   = '64QAM'
